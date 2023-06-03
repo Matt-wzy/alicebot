@@ -20,7 +20,7 @@ jobs:
           python -m pip install --upgrade pip
           cd alicebot
           pip install poetry pytest
-          poetry install --no-dev
+          poetry install --only main
           cd ..
 
       - name: Run tests  # 运行测试

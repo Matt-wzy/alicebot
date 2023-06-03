@@ -27,11 +27,11 @@ jobs:
 
       - name: Run tests  # 运行测试
         run: |
-          poetry run pytest -v tests --log-cli-level=DEBUG > test_log.txt 2>&1  # 运行tests文件夹中的测试用例，并将日志输出到test_log.txt文件
+          poetry run pytest -v tests 
 
-      - name: Upload logs  # 上传日志到artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: logs
-          path: test_log.txt  # 上传test_log.txt文件
+#       - name: Upload logs  # 上传日志到artifacts
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: logs
+#           path: test_log.txt  # 上传test_log.txt文件
 

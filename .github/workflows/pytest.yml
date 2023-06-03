@@ -33,5 +33,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: logs
-          path: report.html  # 上传test_log.txt文件
+          path: |
+            report.html  # 上传test_log.txt文件
+            assets
 

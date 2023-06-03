@@ -3,8 +3,7 @@ from alicebot.config import ConfigModel
 from pydantic import BaseModel
 import coverage
 
-cov = coverage.Coverage()
-cov.start()
+
 
 
 class TestIsConfigClass:
@@ -77,5 +76,3 @@ class TestIsConfigClass:
     #             return True
     #     assert not is_config_class(AbstractClass)
 
-cov.stop()
-cov.report()

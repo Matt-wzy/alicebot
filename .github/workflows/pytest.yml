@@ -27,7 +27,9 @@ jobs:
 
       - name: Run tests  # 运行测试
         run: |
-          poetry run pytest -v tests/unittest --html=html/report.html
+          poetry run coverage run -m pytest -v tests/unittest --html=html/report.html
+          coverage report
+
 
         
       - name: Upload logs anyway # 上传日志到artifacts

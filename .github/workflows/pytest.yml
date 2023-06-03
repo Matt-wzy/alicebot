@@ -25,7 +25,7 @@ jobs:
 
       - name: Run tests  # 运行测试
         run: |
-          pytest -v tests  # 运行tests文件夹中的测试用例
+          poetry run pytest -v tests  # 运行tests文件夹中的测试用例
 
       - name: Upload logs  # 上传日志到artifacts
         uses: actions/upload-artifact@v2

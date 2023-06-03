@@ -19,7 +19,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           cd alicebot
-          pip install poetry
+          pip install poetry pytest
           poetry install --no-dev
           cd ..
 

@@ -28,21 +28,12 @@ jobs:
       - name: Run tests  # 运行测试
         run: |
           poetry run pytest -v tests/unittest --html=html/report.html
-        continue-on-error: true  
 
         
-      - name: Upload logs on failure # 上传日志到artifacts
-        if: ${{ failure() }}
+      - name: Upload logs anyway # 上传日志到artifacts
+        if: ${{ true }}
         uses: actions/upload-artifact@v3
         with:
           name: logs
           path: |
             html
-
-      - name: Upload logs on anyway # 上传日志到artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: logs
-          path: |
-            html
-    

@@ -1,0 +1,35 @@
+name: pytest
+
+on: [push, pull_request]  # 触发测试的事件，可以根据需求进行调整
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # 使用最新版的Ubuntu环境
+
+    steps:
+      - name: Checkout repository  # 检出代码仓库
+        uses: actions/checkout@v2
+
+      - name: Set up Python  # 配置Python环境
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # 使用所需的Python版本
+
+      - name: Install dependencies  # 安装依赖项
+        run: |
+          python -m pip install --upgrade pip
+          cd alicebot
+          pip install poetry
+          poetry install --no-dev
+          cd ..
+
+      - name: Run tests  # 运行测试
+        run: |
+          pytest -v tests  # 运行tests文件夹中的测试用例
+
+      - name: Upload logs  # 上传日志到artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: logs
+          path: path/to/logs/directory  # 指定日志文件夹的路径，根据实际情况修改
+

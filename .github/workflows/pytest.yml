@@ -23,6 +23,12 @@ jobs:
           poetry install --only main
           cd ..
 
+      - name: Check pip list #检查安装是否成功
+        run: |
+          pip list
+          echo '///////'
+          poetry run pip list
+          
       - name: Run tests  # 运行测试
         run: |
           poetry run pytest -v tests  # 运行tests文件夹中的测试用例

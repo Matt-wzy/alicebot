@@ -27,13 +27,13 @@ jobs:
 
       - name: Run tests  # 运行测试
         run: |
-          poetry run pytest -v tests/unittest --html=report.html
+          poetry run pytest -v tests/unittest --html=html/report.html
 
+        
       - name: Upload logs  # 上传日志到artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: logs
           path: |
-            report.html  # 上传test_log.txt文件
-            assets
+            html
 

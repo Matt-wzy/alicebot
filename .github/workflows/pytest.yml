@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies  # 安装依赖项
         run: |
           poetry install --no-dev
-          poetry add pytest pytest-html --dev  # 安装pytest 以及html输出
+          poetry add pytest-github-actions-annotate-failures  pytest-html --dev  # 安装pytest 以及html输出
 
       - name: Run tests  # 运行测试
         run: |

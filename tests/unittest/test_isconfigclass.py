@@ -43,7 +43,7 @@ class TestIsConfigClass:
     def test_is_config_class_with_missing_config_name(self):
         class MissingConfigName(ConfigModel):
             pass
-        assert not is_config_class(MissingConfigName)
+        assert is_config_class(MissingConfigName) is False
 
     # 边界条件: config_class 的 __config_name__ 不是字符串
     def test_is_config_class_with_invalid_config_name(self):
@@ -56,7 +56,10 @@ class TestIsConfigClass:
         from abc import ABC
         class ABCClass(ConfigModel, ABC):
             __config_name__ = "ABCConfig"
-        assert not is_config_class(ABCClass)
+        assert is_config_class(ABCClass) is False
+
+    def test_report_error(self):
+        assert False
 
     # # 边界条件: config_class 是一个抽象类
     # def test_is_config_class_with_abstract_class(self):

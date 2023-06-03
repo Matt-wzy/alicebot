@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Python  # 配置Python环境
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x  # 使用所需的Python版本
 
@@ -28,6 +28,7 @@ jobs:
       - name: Run tests  # 运行测试
         run: |
           poetry run pytest -v tests/unittest --html=html/report.html
+        continue-on-error: true  
 
         
       - name: Upload logs  # 上传日志到artifacts

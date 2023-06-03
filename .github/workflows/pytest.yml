@@ -28,7 +28,7 @@ jobs:
       - name: Run tests  # 运行测试
         run: |
           poetry run coverage run -m pytest -v tests/unittest --html=html/report.html
-          coverage report
+          poetry run coverage report
 
 
         

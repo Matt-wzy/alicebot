@@ -63,8 +63,6 @@ class TestIsConfigClass:
             __config_name__ = "ABCConfig"
         assert is_config_class(ABCClass) is False
 
-    def test_report_error(self):
-        assert False
 
     # # 边界条件: config_class 是一个抽象类
     # def test_is_config_class_with_abstract_class(self):

@@ -31,10 +31,18 @@ jobs:
         continue-on-error: true  
 
         
-      - name: Upload logs  # 上传日志到artifacts
+      - name: Upload logs on failure # 上传日志到artifacts
+        if: ${{ failure() }}
         uses: actions/upload-artifact@v3
         with:
           name: logs
           path: |
             html
 
+      - name: Upload logs on anyway # 上传日志到artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: logs
+          path: |
+            html
+    

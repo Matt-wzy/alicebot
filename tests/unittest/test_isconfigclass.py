@@ -1,7 +1,6 @@
 from alicebot.utils import is_config_class
 from alicebot.config import ConfigModel
-
-
+from pydantic import BaseModel
 
 
 class TestIsConfigClass:
@@ -39,9 +38,15 @@ class TestIsConfigClass:
             __config_name__ = "AbstractConfig"
         assert is_config_class(AbstractClass) is False
 
-    # 边界条件: config_class 没有 __config_name__ 属性
+    # 边界条件: config_class 没有复写 __config_name__ 属性，即此属性为 ''.
     def test_is_config_class_with_missing_config_name(self):
         class MissingConfigName(ConfigModel):
+            pass
+        assert is_config_class(MissingConfigName)
+
+    # 边界条件: config_class 没有 __config_name__ 属性
+    def test_is_config_class_with_missing_config_name_2(self):
+        class MissingConfigName(BaseModel):
             pass
         assert is_config_class(MissingConfigName) is False
 

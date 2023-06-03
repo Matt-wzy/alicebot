@@ -27,7 +27,7 @@ jobs:
 
       - name: Run tests  # 运行测试
         run: |
-          poetry run pytest -v tests 
+          poetry run pytest -v tests/unittest
 
 #       - name: Upload logs  # 上传日志到artifacts
 #         uses: actions/upload-artifact@v2
